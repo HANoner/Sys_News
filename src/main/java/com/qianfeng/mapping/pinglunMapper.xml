@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.qianfeng.dao.pinglunMapper">
-  <resultMap id="BaseResultMap" type="com.qianfeng.entity.pinglun">
+<mapper namespace="com.qianfeng.com.qianfeng.dao.pinglunMapper">
+  <resultMap id="BaseResultMap" type="com.qianfeng.com.qianfeng.entity.pinglun">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="pingluninfo" jdbcType="VARCHAR" property="pingluninfo" />
     <result column="pingluner" jdbcType="VARCHAR" property="pingluner" />
@@ -20,13 +20,13 @@
     delete from d_pinglun
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.qianfeng.entity.pinglun">
+  <insert id="insert" parameterType="com.qianfeng.com.qianfeng.entity.pinglun">
     insert into d_pinglun (id, pingluninfo, pingluner, 
       pingluntime)
     values (#{id,jdbcType=INTEGER}, #{pingluninfo,jdbcType=VARCHAR}, #{pingluner,jdbcType=VARCHAR}, 
       #{pingluntime,jdbcType=DATE})
   </insert>
-  <insert id="insertSelective" parameterType="com.qianfeng.entity.pinglun">
+  <insert id="insertSelective" parameterType="com.qianfeng.com.qianfeng.entity.pinglun">
     insert into d_pinglun
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -57,7 +57,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.qianfeng.entity.pinglun">
+  <update id="updateByPrimaryKeySelective" parameterType="com.qianfeng.com.qianfeng.entity.pinglun">
     update d_pinglun
     <set>
       <if test="pingluninfo != null">
@@ -72,7 +72,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.qianfeng.entity.pinglun">
+  <update id="updateByPrimaryKey" parameterType="com.qianfeng.com.qianfeng.entity.pinglun">
     update d_pinglun
     set pingluninfo = #{pingluninfo,jdbcType=VARCHAR},
       pingluner = #{pingluner,jdbcType=VARCHAR},

@@ -1,4 +1,4 @@
-package dao;
+package com.qianfeng.dao;
 
 import com.qianfeng.entity.pinglun;
 

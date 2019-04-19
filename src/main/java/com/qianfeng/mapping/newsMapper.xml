@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.qianfeng.dao.newsMapper">
-  <resultMap id="BaseResultMap" type="com.qianfeng.entity.news">
+<mapper namespace="com.qianfeng.com.qianfeng.dao.newsMapper">
+  <resultMap id="BaseResultMap" type="com.qianfeng.com.qianfeng.entity.news">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="xinwenbiaoti" jdbcType="VARCHAR" property="xinwenbiaoti" />
     <result column="xinwenzhaiyao" jdbcType="VARCHAR" property="xinwenzhaiyao" />
@@ -21,13 +21,13 @@
     delete from d_news
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.qianfeng.entity.news">
+  <insert id="insert" parameterType="com.qianfeng.com.qianfeng.entity.news">
     insert into d_news (id, xinwenbiaoti, xinwenzhaiyao, 
       zuozhe, chuangjianshijian)
     values (#{id,jdbcType=INTEGER}, #{xinwenbiaoti,jdbcType=VARCHAR}, #{xinwenzhaiyao,jdbcType=VARCHAR}, 
       #{zuozhe,jdbcType=VARCHAR}, #{chuangjianshijian,jdbcType=DATE})
   </insert>
-  <insert id="insertSelective" parameterType="com.qianfeng.entity.news">
+  <insert id="insertSelective" parameterType="com.qianfeng.com.qianfeng.entity.news">
     insert into d_news
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -64,7 +64,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.qianfeng.entity.news">
+  <update id="updateByPrimaryKeySelective" parameterType="com.qianfeng.com.qianfeng.entity.news">
     update d_news
     <set>
       <if test="xinwenbiaoti != null">
@@ -82,7 +82,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.qianfeng.entity.news">
+  <update id="updateByPrimaryKey" parameterType="com.qianfeng.com.qianfeng.entity.news">
     update d_news
     set xinwenbiaoti = #{xinwenbiaoti,jdbcType=VARCHAR},
       xinwenzhaiyao = #{xinwenzhaiyao,jdbcType=VARCHAR},

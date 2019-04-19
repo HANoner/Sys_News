@@ -1,4 +1,4 @@
-package entity;
+package com.qianfeng.entity;
 
 import java.util.Date;
 
