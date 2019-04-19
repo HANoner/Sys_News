@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qianfeng.dao.pinglunMapper">
+  <resultMap id="BaseResultMap" type="com.qianfeng.entity.pinglun">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="pingluninfo" jdbcType="VARCHAR" property="pingluninfo" />
+    <result column="pingluner" jdbcType="VARCHAR" property="pingluner" />
+    <result column="pingluntime" jdbcType="DATE" property="pingluntime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, pingluninfo, pingluner, pingluntime
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from d_pinglun
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from d_pinglun
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.qianfeng.entity.pinglun">
+    insert into d_pinglun (id, pingluninfo, pingluner, 
+      pingluntime)
+    values (#{id,jdbcType=INTEGER}, #{pingluninfo,jdbcType=VARCHAR}, #{pingluner,jdbcType=VARCHAR}, 
+      #{pingluntime,jdbcType=DATE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.qianfeng.entity.pinglun">
+    insert into d_pinglun
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="pingluninfo != null">
+        pingluninfo,
+      </if>
+      <if test="pingluner != null">
+        pingluner,
+      </if>
+      <if test="pingluntime != null">
+        pingluntime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="pingluninfo != null">
+        #{pingluninfo,jdbcType=VARCHAR},
+      </if>
+      <if test="pingluner != null">
+        #{pingluner,jdbcType=VARCHAR},
+      </if>
+      <if test="pingluntime != null">
+        #{pingluntime,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.qianfeng.entity.pinglun">
+    update d_pinglun
+    <set>
+      <if test="pingluninfo != null">
+        pingluninfo = #{pingluninfo,jdbcType=VARCHAR},
+      </if>
+      <if test="pingluner != null">
+        pingluner = #{pingluner,jdbcType=VARCHAR},
+      </if>
+      <if test="pingluntime != null">
+        pingluntime = #{pingluntime,jdbcType=DATE},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.qianfeng.entity.pinglun">
+    update d_pinglun
+    set pingluninfo = #{pingluninfo,jdbcType=VARCHAR},
+      pingluner = #{pingluner,jdbcType=VARCHAR},
+      pingluntime = #{pingluntime,jdbcType=DATE}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
